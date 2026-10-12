@@ -1,0 +1,4 @@
+# Dépendances externes directes indispensables du projet GeodesieMiniProjet
+PyQt5==5.15.11
+pyproj==3.8.0
+pytest==9.1.1

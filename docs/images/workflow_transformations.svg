@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="900" height="480">
+  <defs>
+    <linearGradient id="boxBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <linearGradient id="boxGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#047857"/>
+    </linearGradient>
+    <linearGradient id="boxAmber" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="boxViolet" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="100%" stop-color="#6d28d9"/>
+    </linearGradient>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#0284c7"/>
+    </marker>
+    <marker id="arrowHeadGreen" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arrowHeadAmber" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <rect width="900" height="480" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- En-tête -->
+  <text x="35" y="38" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="800" fill="#0369a1">
+    FLUX DE TRAVAIL DES TRANSFORMATIONS GÉODÉSIQUES 3D
+  </text>
+  <text x="35" y="58" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#64748b">
+    Système Merchich (Ellipsoïde Clarke 1880 IGN) : Directe, Inverses (Bowring &amp; Itérative) et Validation pyproj
+  </text>
+
+  <!-- Bloc 1 : Coordonnées Géodésiques (Gauche) -->
+  <g transform="translate(35, 100)">
+    <rect width="230" height="150" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+    <rect width="230" height="34" rx="8" fill="url(#boxBlue)"/>
+    <text x="15" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#ffffff">
+      COORDS GÉODÉSIQUES 3D
+    </text>
+    <text x="15" y="58" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0369a1">• Latitude φ (degrés)</text>
+    <text x="15" y="75" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#64748b">[-90°, +90°] | Conversion en radians</text>
+    <text x="15" y="98" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0369a1">• Longitude λ (degrés)</text>
+    <text x="15" y="115" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#64748b">[-180°, +180°] | Méridien Greenwich</text>
+    <text x="15" y="136" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0369a1">• Hauteur ellipsoïdale h (m)</text>
+  </g>
+
+  <!-- Flèche Transformation Directe (Haut : Gauche -> Droite) -->
+  <path d="M 275,145 L 610,145" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#arrowHead)"/>
+  <rect x="330" y="105" width="230" height="32" rx="6" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1"/>
+  <text x="345" y="125" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0369a1">
+    TRANSFORMATION DIRECTE →
+  </text>
+  <text x="345" y="158" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-style="italic" fill="#475569">
+    N(φ) = a / √(1 - e²sin²φ)
+  </text>
+
+  <!-- Bloc 2 : Coordonnées Cartésiennes Géocentriques (Droite) -->
+  <g transform="translate(625, 100)">
+    <rect width="240" height="150" rx="10" fill="#ffffff" stroke="#059669" stroke-width="2"/>
+    <rect width="240" height="34" rx="8" fill="url(#boxGreen)"/>
+    <text x="15" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#ffffff">
+      COORDS CARTÉSIENNES 3D
+    </text>
+    <text x="15" y="60" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#047857">• X (mètres)</text>
+    <text x="15" y="76" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#64748b">X = (N + h) cos(φ) cos(λ)</text>
+    <text x="15" y="98" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#047857">• Y (mètres)</text>
+    <text x="15" y="114" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#64748b">Y = (N + h) cos(φ) sin(λ)</text>
+    <text x="15" y="134" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#047857">• Z (mètres)</text>
+  </g>
+
+  <!-- Flèches Transformations Inverses (Bas : Droite -> Gauche) -->
+  <!-- Méthode A : Bowring -->
+  <path d="M 625,280 L 275,280" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowHeadAmber)"/>
+  <rect x="310" y="260" width="270" height="40" rx="6" fill="#fef3c7" stroke="#fde68a" stroke-width="1"/>
+  <text x="320" y="278" font-family="'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" fill="#b45309">
+    ← INVERSE A : BOWRING (1976)
+  </text>
+  <text x="320" y="293" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" fill="#92400e">
+    Forme fermée directe (θ) | Non itératif | Sub-millimétrique
+  </text>
+
+  <!-- Méthode B : Itérative -->
+  <path d="M 625,360 L 275,360" fill="none" stroke="#059669" stroke-width="2.5" marker-end="url(#arrowHeadGreen)"/>
+  <rect x="310" y="340" width="270" height="40" rx="6" fill="#d1fae5" stroke="#a7f3d0" stroke-width="1"/>
+  <text x="320" y="358" font-family="'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" fill="#047857">
+    ← INVERSE B : ITÉRATIVE (H&amp;M 1967)
+  </text>
+  <text x="320" y="373" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" fill="#065f46">
+    Boucle jusqu'à |Δφ| &lt; 10⁻¹² rad | Précision machine float64
+  </text>
+
+  <!-- Cadre Validation Indépendante pyproj (Bas) -->
+  <g transform="translate(180, 415)">
+    <rect width="540" height="48" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <text x="20" y="22" font-family="'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="700" fill="#6d28d9">
+      RÉFÉRENCE INDÉPENDANTE EXTERNE : BIBLIOTHÈQUE PYPROJ (PROJ 9)
+    </text>
+    <text x="20" y="38" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#475569">
+      Certification rigoureuse des formules pures Python par validation croisée (44 tests pytest validés).
+    </text>
+  </g>
+</svg>

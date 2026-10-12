@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 540" width="840" height="540">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#f1f5f9"/>
+    </linearGradient>
+    <linearGradient id="ellGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#bae6fd" stop-opacity="0.2"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#0369a1"/>
+    </marker>
+    <marker id="arrowDark" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#334155"/>
+    </marker>
+  </defs>
+
+  <!-- Fond -->
+  <rect width="840" height="540" rx="12" fill="url(#bgGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Titre du diagramme -->
+  <text x="30" y="36" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="800" fill="#0369a1">
+    GÉOMÉTRIE DE L'ELLIPSOÏDE DE RÉVOLUTION (CLARKE 1880 / MERCHICH)
+  </text>
+  <text x="30" y="58" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#64748b">
+    Définition des coordonnées géodésiques (φ, h), de la grande normale N(φ) et distinction avec la latitude géocentrique ψ
+  </text>
+
+  <!-- Groupe Géométrie (Centre O à 360, 310) -->
+  <g transform="translate(360, 310)">
+    <!-- Surface de l'ellipsoïde (a=230, b=165) -->
+    <ellipse cx="0" cy="0" rx="230" ry="165" fill="url(#ellGrad)" stroke="#0284c7" stroke-width="2.5"/>
+
+    <!-- Axe polaire Z (axe de rotation terrestre) -->
+    <line x1="0" y1="200" x2="0" y2="-230" stroke="#334155" stroke-width="1.8" marker-end="url(#arrowDark)"/>
+    <text x="12" y="-215" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#334155">Axe Z (Pôle Nord)</text>
+
+    <!-- Axe équatorial X / p (plan équatorial) -->
+    <line x1="-260" y1="0" x2="290" y2="0" stroke="#334155" stroke-width="1.8" marker-end="url(#arrowDark)"/>
+    <text x="260" y="-12" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="#334155">Plan Équatorial (p)</text>
+
+    <!-- Centre de masse O (géocentre) -->
+    <circle cx="0" cy="0" r="4.5" fill="#0f172a"/>
+    <text x="-22" y="18" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#0f172a">O (0,0)</text>
+
+    <!-- Cotes des demi-axes a et b -->
+    <!-- Demi-grand axe a -->
+    <line x1="0" y1="35" x2="230" y2="35" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="0" y1="28" x2="0" y2="42" stroke="#0284c7" stroke-width="1.5"/>
+    <line x1="230" y1="28" x2="230" y2="42" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="90" y="52" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#0284c7">a = 6 378 249.2 m</text>
+
+    <!-- Demi-petit axe b -->
+    <line x1="-35" y1="0" x2="-35" y2="-165" stroke="#0284c7" stroke-width="1.5" stroke-dasharray="4 3"/>
+    <line x1="-42" y1="0" x2="-28" y2="0" stroke="#0284c7" stroke-width="1.5"/>
+    <line x1="-42" y1="-165" x2="-28" y2="-165" stroke="#0284c7" stroke-width="1.5"/>
+    <text x="-165" y="-75" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#0284c7">b = 6 356 515.0 m</text>
+
+    <!-- Point P_0 sur l'ellipsoïde (phi ≈ 42°) -->
+    <!-- Paramétrique: x0 = 160, y0 = -118 -->
+    <!-- Normale: intersection axe Z en Q(0, -32) car zQ = -e² * N * sin(phi) -->
+    <!-- Vecteur normal: de Q(0, -32) vers P0(160, -118) -> pente dy/dx = -86/160 = -0.5375 -->
+    <!-- Point P à hauteur h le long de la normale: P(205, -142) -->
+    
+    <!-- Ligne de la normale Q -> P0 -> P -->
+    <line x1="0" y1="-32" x2="225" y2="-152" stroke="#dc2626" stroke-width="2"/>
+    
+    <!-- Intersection de la normale avec l'axe Z (Point Q) -->
+    <circle cx="0" cy="-32" r="3.5" fill="#dc2626"/>
+    <text x="-48" y="-30" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#dc2626">Q (0, zQ)</text>
+
+    <!-- Rayon vecteur OP (vers P_0 pour montrer psi) -->
+    <line x1="0" y1="0" x2="160" y2="-118" stroke="#475569" stroke-width="1.5" stroke-dasharray="3 3"/>
+
+    <!-- Point P_0 (surface ellipsoïde) -->
+    <circle cx="160" cy="-118" r="4.5" fill="#0284c7"/>
+    <text x="135" y="-128" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0284c7">P₀ (surface)</text>
+
+    <!-- Point P physique (avec hauteur h) -->
+    <circle cx="205" cy="-142" r="5" fill="#dc2626"/>
+    <text x="215" y="-146" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#dc2626">P (φ, λ, h)</text>
+
+    <!-- Cote de la hauteur h entre P0 et P -->
+    <text x="188" y="-115" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#dc2626">h</text>
+
+    <!-- Cote de la Grande Normale N(φ) entre Q et P0 -->
+    <text x="65" y="-95" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#dc2626">N(φ)</text>
+
+    <!-- Ligne parallèle au plan équatorial passant par Q pour marquer l'angle φ -->
+    <line x1="0" y1="-32" x2="80" y2="-32" stroke="#dc2626" stroke-width="1" stroke-dasharray="3 2"/>
+
+    <!-- Arc de la latitude géodésique φ -->
+    <path d="M 50,-32 A 50 50 0 0 0 44,-55" fill="none" stroke="#dc2626" stroke-width="2"/>
+    <text x="56" y="-42" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#dc2626">φ</text>
+
+    <!-- Arc de la latitude géocentrique ψ -->
+    <path d="M 65,0 A 65 65 0 0 0 52,-38" fill="none" stroke="#475569" stroke-width="1.5"/>
+    <text x="68" y="-16" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="700" fill="#475569">ψ</text>
+  </g>
+
+  <!-- Panneau latéral d'explication pédagogique -->
+  <g transform="translate(620, 80)">
+    <rect width="200" height="425" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.2"/>
+    <text x="14" y="26" font-family="'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="800" fill="#0369a1">RÉSUMÉ GÉODÉSIQUE</text>
+
+    <text x="14" y="55" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#dc2626">Latitude géodésique φ :</text>
+    <text x="14" y="70" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">Angle entre la normale</text>
+    <text x="14" y="84" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">à l'ellipsoïde et le plan</text>
+    <text x="14" y="98" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">équatorial. [-90°, +90°].</text>
+
+    <text x="14" y="125" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#475569">Latitude géocentrique ψ :</text>
+    <text x="14" y="140" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">Angle entre le rayon</text>
+    <text x="14" y="154" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">vecteur OP et l'équateur.</text>
+    <text x="14" y="170" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="600" fill="#b91c1c">Note : ψ ≤ φ (hémisphère N)</text>
+
+    <text x="14" y="200" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0284c7">Grande Normale N(φ) :</text>
+    <text x="14" y="215" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">Rayon de courbure du</text>
+    <text x="14" y="229" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">premier vertical :</text>
+    <text x="14" y="246" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0369a1">N = a / √(1 - e²sin²φ)</text>
+
+    <text x="14" y="275" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">Hauteur ellipsoïdale h :</text>
+    <text x="14" y="290" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">Distance comptée le long</text>
+    <text x="14" y="304" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">de la normale entre P₀ et P.</text>
+
+    <text x="14" y="335" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">Axe équatorial p :</text>
+    <text x="14" y="350" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">p = √(X² + Y²)</text>
+    <text x="14" y="364" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">Rayon au plan équatorial.</text>
+
+    <text x="14" y="395" font-family="'Segoe UI', Roboto, sans-serif" font-size="10.5" font-weight="700" fill="#059669">Datum Merchich :</text>
+    <text x="14" y="410" font-family="'Segoe UI', Roboto, sans-serif" font-size="10" fill="#475569">Ellipsoïde Clarke 1880 IGN</text>
+  </g>
+</svg>

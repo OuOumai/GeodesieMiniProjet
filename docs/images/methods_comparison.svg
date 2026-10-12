@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="880" height="500">
+  <defs>
+    <linearGradient id="cardGrad1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fffbeb"/>
+      <stop offset="100%" stop-color="#fef3c7"/>
+    </linearGradient>
+    <linearGradient id="cardGrad2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f0fdf4"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+    <marker id="loopArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 10 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+  </defs>
+
+  <rect width="880" height="500" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- Titre -->
+  <text x="35" y="38" font-family="'Segoe UI', Roboto, sans-serif" font-size="18" font-weight="800" fill="#0369a1">
+    COMPARAISON DES MÉTHODES INVERSES (X, Y, Z → φ, λ, h)
+  </text>
+  <text x="35" y="58" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#64748b">
+    Approximation directe de Bowring (1976) vs Méthode itérative de Heiskanen &amp; Moritz (1967)
+  </text>
+
+  <!-- Colonne Gauche : Méthode de Bowring -->
+  <g transform="translate(35, 85)">
+    <rect width="385" height="385" rx="10" fill="url(#cardGrad1)" stroke="#f59e0b" stroke-width="2"/>
+    <rect width="385" height="38" rx="8" fill="#d97706"/>
+    <text x="16" y="24" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      MÉTHODE A : BOWRING (1976)
+    </text>
+
+    <!-- Sous-titre -->
+    <text x="16" y="62" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#b45309">
+      Approximation analytique en forme fermée
+    </text>
+
+    <!-- Étape 1 -->
+    <rect x="16" y="78" width="353" height="48" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1.2"/>
+    <text x="26" y="98" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      1. Latitude paramétrique réduite initiale :
+    </text>
+    <text x="26" y="115" font-family="'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#b45309">
+      θ = atan2(Z · a, p · b)
+    </text>
+
+    <!-- Étape 2 -->
+    <rect x="16" y="136" width="353" height="60" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1.2"/>
+    <text x="26" y="156" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      2. Calcul direct en un seul pas de φ :
+    </text>
+    <text x="26" y="174" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#b45309">
+      φ = atan2(Z + e'² b sin³θ,  p - e² a cos³θ)
+    </text>
+    <text x="26" y="188" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5" fill="#64748b">
+      e² = (a²-b²)/a²,  e'² = (a²-b²)/b²
+    </text>
+
+    <!-- Étape 3 -->
+    <rect x="16" y="206" width="353" height="48" rx="6" fill="#ffffff" stroke="#fde68a" stroke-width="1.2"/>
+    <text x="26" y="226" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      3. Hauteur ellipsoïdale h et Longitude λ :
+    </text>
+    <text x="26" y="243" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#b45309">
+      h = p/cosφ - N(φ)   |   λ = atan2(Y, X)
+    </text>
+
+    <!-- Caractéristiques -->
+    <text x="16" y="280" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0f172a">Caractéristiques &amp; Performance :</text>
+    <text x="16" y="300" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Nombre d'itérations : <b>0 (forme fermée)</b></text>
+    <text x="16" y="320" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Temps de calcul : <b>Ultra-rapide (déterministe)</b></text>
+    <text x="16" y="340" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Écart en latitude : <b>&lt; 10⁻⁷ ° (&lt; 0.01 mm sur l'ellipsoïde)</b></text>
+    <text x="16" y="360" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Écart en hauteur : <b>&lt; 10⁻³ m (&lt; 1 mm)</b> pour |h| &lt; 10 km</text>
+  </g>
+
+  <!-- Colonne Droite : Méthode Itérative -->
+  <g transform="translate(460, 85)">
+    <rect width="385" height="385" rx="10" fill="url(#cardGrad2)" stroke="#10b981" stroke-width="2"/>
+    <rect width="385" height="38" rx="8" fill="#059669"/>
+    <text x="16" y="24" font-family="'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="800" fill="#ffffff">
+      MÉTHODE B : ITÉRATIVE (H&amp;M, 1967)
+    </text>
+
+    <!-- Sous-titre -->
+    <text x="16" y="62" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#047857">
+      Convergence par approximations successives
+    </text>
+
+    <!-- Étape 1 -->
+    <rect x="16" y="78" width="353" height="42" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2"/>
+    <text x="26" y="96" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      1. Initialisation sphérique :
+    </text>
+    <text x="26" y="112" font-family="'Segoe UI', Roboto, sans-serif" font-size="11.5" font-weight="600" fill="#047857">
+      φ₀ = atan2(Z, p · (1 - e²))
+    </text>
+
+    <!-- Étape 2 : Boucle avec flèche d'itération -->
+    <rect x="16" y="128" width="353" height="78" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2"/>
+    <text x="26" y="146" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      2. Boucle itérative k (1 .. max_iter) :
+    </text>
+    <text x="26" y="164" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#047857">
+      N_k = a / √(1 - e² sin²φ_k) ;  h_k = p/cosφ_k - N_k
+    </text>
+    <text x="26" y="182" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#047857">
+      φ_(k+1) = atan2(Z, p · [1 - e² · N_k / (N_k + h_k)])
+    </text>
+    <text x="26" y="198" font-family="'Segoe UI', Roboto, sans-serif" font-size="9.5" font-style="italic" fill="#059669">
+      Arrêt si |φ_(k+1) - φ_k| &lt; tolérance (10⁻¹² rad)
+    </text>
+
+    <!-- Étape 3 -->
+    <rect x="16" y="214" width="353" height="40" rx="6" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.2"/>
+    <text x="26" y="232" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0f172a">
+      3. Calcul final de haute fidélité pour h et λ :
+    </text>
+    <text x="26" y="247" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="600" fill="#047857">
+      h_final = p/cosφ_final - N_final  |  λ = atan2(Y, X)
+    </text>
+
+    <!-- Caractéristiques -->
+    <text x="16" y="280" font-family="'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="700" fill="#0f172a">Caractéristiques &amp; Performance :</text>
+    <text x="16" y="300" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Nombre d'itérations : <b>3 à 4 itérations typiques</b></text>
+    <text x="16" y="320" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Vitesse : <b>Convergence quadratique très rapide</b></text>
+    <text x="16" y="340" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Écart en latitude : <b>&lt; 10⁻¹² rad (précision machine IEEE 754)</b></text>
+    <text x="16" y="360" font-family="'Segoe UI', Roboto, sans-serif" font-size="11" fill="#334155">• Sécurité : <b>Levée de ConvergenceError si divergence</b></text>
+  </g>
+</svg>
