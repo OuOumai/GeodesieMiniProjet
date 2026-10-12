@@ -20,8 +20,7 @@
 10. [Installation et Exécution sous Windows](#10-installation-et-exécution-sous-windows)
 11. [Méthodologie de Validation](#11-méthodologie-de-validation)
 12. [Résultats des Tests et Analyse Numérique](#12-résultats-des-tests-et-analyse-numérique)
-13. [Limites Connues et Perspectives d'Amélioration](#13-limites-connues-et-perspectives-damélioration)
-14. [Références Bibliographiques et Remerciements](#14-références-bibliographiques-et-remerciements)
+
 
 ---
 
@@ -304,29 +303,6 @@ Les séries de tests intégrées à l'IHM affichent les résultats suivants :
 
 ---
 
-## 13. Limites Connues et Perspectives d'Amélioration
 
-### Limites actuelles
-1. **Périmètre géodésique 3D strict** : Le projet ne met pas en œuvre les projections planes cartographiques 2D (projection Lambert Maroc zones I à IV).
-2. **Absence de transformation de datum 7 paramètres** : Le passage direct entre Merchich et WGS 84 (GPS mondial) nécessite des paramètres de translation/rotation/échelle (Helmert) non implémentés ici.
-3. **Singularité au centre de masse** : Le géocentre $(0, 0, 0)$ est mathématiquement indéfini et lève une exception interceptée.
 
-### Perspectives d'amélioration
-- Ajout d'un module de projection plane conique conforme de **Lambert Merchich (Nord Maroc, Sud Maroc)** avec calcul du facteur d'échelle et de la convergence des méridiens.
-- Implémentation de la transformation de Helmert 7 paramètres (Merchich $\to$ WGS 84).
-- Calcul de la distance géodésique le long de l'ellipsoïde par l'algorithme de Vincenty.
-- Traitement par lot (batch processing) de fichiers de semis de points topographiques (CSV, TXT, DXF).
 
----
-
-## 14. Références Bibliographiques et Remerciements
-
-### Références bibliographiques officielles
-1. **Bowring, B. R. (1976)**. *Transformation from spatial to geographical coordinates*. Survey Review, Vol. XXIII, n° 181, pp. 323–327.
-2. **Heiskanen, W. A., & Moritz, H. (1967)**. *Physical Geodesy*. W. H. Freeman and Company, San Francisco.
-3. **Hofmann-Wellenhof, B., Lichtenegger, H., & Collins, J. (2001)**. *GPS: Theory and Practice* (5th ed.). Springer-Verlag, Vienne.
-4. **Institut Géographique National (IGN France)**. *Formules de transformations géodésiques et paramètres des ellipsoïdes de référence*.
-5. **Agence Nationale de la Conservation Foncière, du Cadastre et de la Cartographie (ANCFCC, Maroc)**. *Documentation officielle sur le système géodésique Merchich et le réseau géodésique marocain*.
-
-### Remerciements
-Ce travail a été réalisé dans le cadre de notre formation en sciences géodésiques et topographiques. Nous tenons à remercier notre professeur pour ses enseignements précieux en géodésie géométrique et calculs de réseaux.
